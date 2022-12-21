@@ -1,4 +1,4 @@
-import "./style.css";
+import "./cs/style.css";
 import javascriptLogo from "./javascript.svg";
 import { setupCounter } from "./counter.js.js";
 

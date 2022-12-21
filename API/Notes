@@ -1,0 +1,14 @@
+function random() {
+  const randomPromise = new Promise(function (resolve, reject) {
+    //Make a promise
+    resolve("Hello"); // What to expect when resolved
+  });
+  return randomPromise; // Returns the Promise so we cna use in global
+}
+
+const random = random(); //Getting Data via a promise
+
+random.then((result) => {
+  //What we are doing with the data
+  console.log(result);
+});
