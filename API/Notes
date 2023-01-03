@@ -10,5 +10,6 @@ const random = random(); //Getting Data via a promise
 
 random.then((result) => {
   //What we are doing with the data
+
   console.log(result);
 });
