@@ -1,23 +1,22 @@
-import "./cs/style.css";
-import javascriptLogo from "./javascript.svg";
-import { setupCounter } from "./counter.js.js";
+import "../style/style.css";
+const URL = `https://api.jikan.moe/v4/anime?q=Naruto&sfw`;
+// const URL = `https://api.jikan.moe/v4/naruto/{id}/pictures`;
+// const URL = `https://api.jikan.moe/v4/anime?q=${anime}&sfw`;
 
-document.querySelector("#app").innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`;
+async function getData(URL) {
+  try {
+    const aniout = await fetch(URL);
+    if (aniout.status <= 199 || aniout.status >= 300) {
+      throw new Error(aniout);
+    } else {
+      const data = await aniout.json();
+      document.body.textContent = data.content;
+      console.log(data.titles);
+    }
+  } catch (error) {
+    console.log(error);
+    console.log("No");
+  }
+}
 
-setupCounter(document.querySelector("#counter"));
+getData(URL);
