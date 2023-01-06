@@ -1,6 +1,6 @@
 import "../style/style.css";
 const URL = `https://api.jikan.moe/v4/anime?q=Naruto&sfw`;
-// const URL = `https://api.jikan.moe/v4/naruto/{id}/pictures`;
+// const URL = `https://api.jikan.moe/v4/naruto/{id}/picturens`;
 // const URL = `https://api.jikan.moe/v4/anime?q=${anime}&sfw`;
 
 async function getData(URL) {
@@ -11,7 +11,7 @@ async function getData(URL) {
     } else {
       const data = await aniout.json();
       document.body.textContent = data.content;
-      console.log(data.titles);
+      console.log("poop");
     }
   } catch (error) {
     console.log(error);
