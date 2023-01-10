@@ -12,19 +12,34 @@ async function getData(URL) {
       throw new Error(aniout);
     } else {
       const data = await aniout.json();
+      // console.log(data.data);
+      // console.log(data.data[0].images.jpg.large_image_url);
       console.log(data.data);
-      console.log(data.data[0].images.jpg.large_image_url);
-      data.forEach((el) => cel.data  { document.body.innerHTML = `<img src="${el.images.jpg.large_image_url}" alt="">`;
-      console.log("poop");}
-
-        );
-      document.body.innerHTML = `<img src="${data.data[0].images.jpg.large_image_url}" alt="">`;
-      console.log("poop");
+      GetImg();
+      // data.data.forEach((el) => {
+      //   document.body.insertAdjacentHTML(
+      //     "afterbegin",
+      //     `<img src="${el.images.jpg.large_image_url}" alt="">`
+      //   );
+        console.log("poop");
+      };
+      // document.body.innerHTML = `<img src="${data.data[0].images.jpg.large_image_url}" alt="">`;
+      // console.log("poop");
     }
   } catch (error) {
     console.log(error);
     console.log("No");
   }
+}
+
+function GetImg() {
+  data.data.forEach((el) => {
+    document.body.insertAdjacentHTML(
+      "afterbegin",
+      `
+      <img src="${el.images.jpg.large_image_url}" alt="">`
+    );
+  });
 }
 
 getData(URL);
