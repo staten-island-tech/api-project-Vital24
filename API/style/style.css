@@ -44,17 +44,6 @@ h1 {
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #f7df1eaa);
-}
 
 .card {
   padding: 2em;
@@ -95,3 +84,16 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.api-reponse { 
+  /* display: flex;
+  flex-direction: row-reverse; */
+  flex-wrap: wrap;
+  width: 80vw;
+
+  margin: 1rem auto;
+  align-items: center;
+  overflow: scroll;
+  height: 80vh;
+}
+x
