@@ -32,30 +32,43 @@ async function getData(URL) {
   }
 }
 
+// const EPID = data.data.forEach((el) => el.mal_id);
 const info = {
   GetImg: async function () {
     const aniout = await fetch(URL);
     const data = await aniout.json();
-
     data.data.forEach((el) => {
       DOM.reponse.insertAdjacentHTML(
         "beforeend",
-        `
+        `<div class=>
         <img src="${el.images.jpg.large_image_url}" alt="">
         <h2>Name:${el.title_english} ID: ${el.mal_id}</h2>
+        </div>
+        `
+      );
+      // const URLEP = `https://api.jikan.moe/v4/anime/${el.mal.id}/episodes`;
+    });
+    // const EPID = data.data.forEach((el) => console.log(el.mal_id));
+  },
+
+  GetEp: async function () {
+    const URLEP = `https://api.jikan.moe/v4/anime/20/episodes`;
+    const epout = await fetch(URLEP);
+    const epdata = await epout.json();
+    console.log(epdata.data.title_english);
+    epdata.data.forEach((el) => {
+      DOM.reponse.insertAdjacentHTML(
+        "beforeend",
+        `<div class=>>
+        <h2>Name:${el.title}</h2>
+        </div>
         `
       );
     });
-    const EPID = data.data.forEach((el) => console.log(el.mal_id));
-  },
-  GetEp: async function () {
-    const URLEP = `https://api.jikan.moe/v4/anime/${el.mal.id}/episodes`;
-    const epout = await fetch(URLEP);
-    const epdata = await epout.json();
-    console.log(epdata);
   },
 };
 
+info.GetEp();
 // GetImg();
 getData(URL);
 
