@@ -1,6 +1,6 @@
 import { DOM } from "./dom";
 import "../style/style.css";
-const URL = `https://api.jikan.moe/v4/anime?q=mob pyscho&sfw`;
+const URL = ``;
 
 async function getData(URL) {
   try {
