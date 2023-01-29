@@ -28,7 +28,7 @@ const info = {
     // console.log(GunData.data);
     GunData.data
       .filter((el) => el.displayName.includes("Odin"))
-      .forEach((el) => {
+      .map((el) => {
         DOM.reponse.insertAdjacentHTML(
           "beforeend",
           `<div>
@@ -48,7 +48,11 @@ const info = {
 
           </div>`
         );
+        console.log(el.uuid);
+        const uuid = el.uuid;
+        return uuid;
       });
+    console.log(uuid);
   },
 };
 info.GetImg();
