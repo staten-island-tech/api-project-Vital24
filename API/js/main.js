@@ -21,11 +21,33 @@ const info = {
   GetImg: async function () {
     const GunInfo = await fetch(URL);
     const GunData = await GunInfo.json();
-    console.log(GunData.data);
+
+    // GunData.data.forEach((el) => {
+    //   console.log(el.displayName.weaponStats);
+    // });
+    // console.log(GunData.data);
     GunData.data
       .filter((el) => el.displayName.includes("Odin"))
-      .map((el) => {
-        console.log(el.displayName);
+      .forEach((el) => {
+        DOM.reponse.insertAdjacentHTML(
+          "beforeend",
+          `<div>
+            <img src="${el.displayIcon}" alt="">
+            <img src="${el.skins[0].displayIcon}" alt="">
+            <h1>${el.displayName}</h3>
+            <h3>Fire Rate: ${el.weaponStats.fireRate} bullets per second</h3>
+            <h3>Magazine Size: ${el.weaponStats.magazineSize} bullets</h3>
+            <h3>Reload Time: ${el.weaponStats.reloadTimeSeconds} seconds</h3>
+            <h3>Damage from 0~30m</h3>
+            <h3>Head Shot Damage: ${el.weaponStats.damageRanges[0].headDamage}</h3>
+            <h3>Body Shot Damage: ${el.weaponStats.damageRanges[0].bodyDamage}</h3>
+            <h3>Damage at 30m+</h3>
+            <h3>Head Shot Damage: ${el.weaponStats.damageRanges[1].headDamage}</h3>
+            <h3>Body Shot Damage: ${el.weaponStats.damageRanges[1].bodyDamage}</h3>
+            
+
+          </div>`
+        );
       });
   },
 };
