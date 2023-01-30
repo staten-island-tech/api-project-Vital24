@@ -97,3 +97,6 @@ DOM.Submit.addEventListener("submit", function (abc) {
   document.getElementById("form").reset();
 });
 
+<h3>Damage at 30m+</h3>
+<h3>Head Shot Damage: ${el.weaponStats.damageRanges[1].headDamage}</h3>
+<h3>Body Shot Damage: ${el.weaponStats.damageRanges[1].bodyDamage}</h3>
