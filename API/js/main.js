@@ -9,41 +9,37 @@ async function getData(URL) {
     if (GunInfo.status <= 199 || GunInfo.status >= 300) {
       throw new Error(GunInfo);
     } else {
-      // info.GetImg();
-      // console.log(DOM.Poo.textContent);
+      getInfo();
     }
   } catch (error) {
     console.log(error);
     console.log("No");
   }
 }
-
 function clear() {
-  document.querySelector("text-box").reset();
+  document.querySelector(".clown").value = "";
 }
 
-DOM.submit.addEventListener("submit", function (abc) {
+DOM.submit.addEventListener("submit", async function (abc) {
   abc.preventDefault();
-  info.GetImg();
+  await getInfo();
   clear();
 });
 
-const info = {
-  GetImg: async function () {
-    const GunInfo = await fetch(URL);
-    const GunData = await GunInfo.json();
+}
+async function getInfo() {
+  const GunInfo = await fetch(URL);
+  const GunData = await GunInfo.json();
+  let UserInputIM = DOM.Input.value;
+  const UserInput = UserInputIM.charAt(0).toUpperCase() + UserInputIM.slice(1);
+  console.log(UserInput);
 
-    let UserInputIM = DOM.Input.value;
-    const UserInput =
-      UserInputIM.charAt(0).toUpperCase() + UserInputIM.slice(1);
-    console.log(UserInput);
-
-    GunData.data
-      .filter((el) => el.displayName == `${UserInput}`)
-      .map((el) => {
-        DOM.reponse.insertAdjacentHTML(
-          "beforeend",
-          `<div>
+  GunData.data
+    .filter((el) => el.displayName == `${UserInput}`)
+    .map((el) => {
+      DOM.reponse.insertAdjacentHTML(
+        "beforeend",
+        `<div class="suu">
             <img src="${el.displayIcon}" alt="">
             <img src="${el.skins[0].displayIcon}" alt="">
             <img src="${el.skins[1].displayIcon}" alt="">
@@ -59,7 +55,6 @@ const info = {
 
           
           </div>`
-        );
-      });
-  },
-};
+      );
+    });
+}
