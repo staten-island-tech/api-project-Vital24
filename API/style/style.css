@@ -1,13 +1,11 @@
+
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif,'VALORANT';
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
-
+  background-color: #DF9098;
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -24,33 +22,37 @@ a:hover {
   color: #535bf2;
 }
 
-body {
-  margin: 0;
+.ReponseList{ 
   display: flex;
-  place-items: center;
+  flex-direction: row;
+  margin: 5rem;
+}
+
+.InputList { 
+  width: 25vw;
+}
+
+body {
+  font-family: 'VALORANT', sans-serif;
+  margin: 0;
+  font-weight: bold;
+  color: black;
   min-width: 320px;
   min-height: 100vh;
+  text-align: center;
+}
+
+img {
+  width: 500px
+}
+
+li {
+  font-size: 1.8rem;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-}
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
 
 button {
@@ -86,14 +88,11 @@ button:focus-visible {
 }
 
 .api-reponse { 
-  /* display: flex;
-  flex-direction: row-reverse; */
   flex-wrap: wrap;
   width: 80vw;
 
   margin: 1rem auto;
   align-items: center;
-  /* overflow: scroll; */
   height: 80vh;
 }
 x

@@ -9,6 +9,7 @@ async function getData(URL) {
     if (GunInfo.status <= 199 || GunInfo.status >= 300) {
       throw new Error(GunInfo);
     } else {
+      GunList();
       getInfo();
     }
   } catch (error) {
@@ -16,17 +17,33 @@ async function getData(URL) {
     console.log("No");
   }
 }
-function clear() {
+
+function ClearInput() {
   document.querySelector(".clown").value = "";
+}
+
+function removal(event) {
+  event.target.parentElement.remove();
 }
 
 DOM.submit.addEventListener("submit", async function (abc) {
   abc.preventDefault();
   await getInfo();
-  clear();
+  ClearInput();
+  document.querySelectorAll(".remove").forEach((button) => {
+    button.addEventListener("click", removal);
+  });
 });
 
+async function GunList() {
+  const GunInfo = await fetch(URL);
+  const GunData = await GunInfo.json();
+  console.log(GunData);
+  GunData.data.forEach((el) => {
+    DOM.list.insertAdjacentHTML("beforeend", `<li>${el.displayName}</li>`);
+  });
 }
+
 async function getInfo() {
   const GunInfo = await fetch(URL);
   const GunData = await GunInfo.json();
@@ -52,9 +69,11 @@ async function getInfo() {
             <h3>Head Shot Damage: ${el.weaponStats.damageRanges[0].headDamage}</h3>
             <h3>Body Shot Damage: ${el.weaponStats.damageRanges[0].bodyDamage}</h3>
 
-
+            <button class="remove">Clear</button>
           
           </div>`
       );
     });
 }
+
+getData(URL);

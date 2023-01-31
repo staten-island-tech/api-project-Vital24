@@ -1,14 +1,8 @@
 const DOM = {
   reponse: document.querySelector(".api-reponse"),
-  Submit: document.querySelector(".poopoo"),
-  Input: document.querySelector(".clown"),
+  Input: document.querySelector(".UserInput"),
   submit: document.querySelector("#form"),
-  // ChangeToLiqour: document.querySelector(".ChangeLiqour"),
-  // ChangeToSushi: document.querySelector(".ChangeSushi"),
-  // ChangeToAll: document.querySelector(".ChangeAll"),
-  // Typess: document.getElementById("Display"),
-  // ThemeChange: document.querySelector("aaaaaa"),
-  // Theme: document.querySelector("body"),
+  list: document.querySelector(".list"),
 };
 
 export { DOM };

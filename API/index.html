@@ -2,22 +2,31 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link href="https://fonts.cdnfonts.com/css/valorant" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Anime Nerd</title>
   </head>
   <body>
-    <form id="form">
-      <div class="input">
-        <label>Gun</label>
-        <input type="text" class="clown" required />
-      </div>
-      <div>
-        <input type="submit" value="Submit" class="btn" id="pok" />
-      </div>
-    </form>
 
-    <section class="api-reponse"></section>
+    <h1> Valorant DATA</h1>
+    <section class="ReponseList">
+      <div class="InputList">
+        <form id="form">
+          <div class="input">
+            <label for="Input" >Gun:</label>
+            <input type="text" name="Input" class="UserInput" required />
+            <input type="submit" value="Submit" class="btn" />
+          </div>
+        </form>
+        <ul class="list">
+          List of Weapons
+        </ul>
+      </div>
+
+    <div class="api-reponse"></div>
+    </section>
+    
+
 
     <script type="module" src="./js/main.js"></script>
   </body>
