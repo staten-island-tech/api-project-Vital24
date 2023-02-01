@@ -19,7 +19,7 @@ async function getData(URL) {
 }
 
 function ClearInput() {
-  document.querySelector(".clown").value = "";
+  document.querySelector(".UserInput").value = "";
 }
 
 function removal(event) {
@@ -38,7 +38,6 @@ DOM.submit.addEventListener("submit", async function (abc) {
 async function GunList() {
   const GunInfo = await fetch(URL);
   const GunData = await GunInfo.json();
-  console.log(GunData);
   GunData.data.forEach((el) => {
     DOM.list.insertAdjacentHTML("beforeend", `<li>${el.displayName}</li>`);
   });
@@ -49,7 +48,6 @@ async function getInfo() {
   const GunData = await GunInfo.json();
   let UserInputIM = DOM.Input.value;
   const UserInput = UserInputIM.charAt(0).toUpperCase() + UserInputIM.slice(1);
-  console.log(UserInput);
 
   GunData.data
     .filter((el) => el.displayName == `${UserInput}`)
