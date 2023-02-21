@@ -10,7 +10,6 @@ async function getData(URL) {
       throw new Error(GunInfo);
     } else {
       GunList();
-      getInfo();
     }
   } catch (error) {
     console.log(error);
@@ -46,32 +45,70 @@ async function GunList() {
 async function getInfo() {
   const GunInfo = await fetch(URL);
   const GunData = await GunInfo.json();
-  let UserInputIM = DOM.Input.value;
+  let UserInputIM = DOM.Input.value.toLowerCase();
+
   const UserInput = UserInputIM.charAt(0).toUpperCase() + UserInputIM.slice(1);
+  console.log(UserInput);
 
-  GunData.data
-    .filter((el) => el.displayName == `${UserInput}`)
-    .map((el) => {
-      DOM.reponse.insertAdjacentHTML(
-        "beforeend",
-        `<div class="suu">
-            <img src="${el.displayIcon}" alt="">
-            <img src="${el.skins[0].displayIcon}" alt="">
-            <img src="${el.skins[1].displayIcon}" alt="">
-            <img src="${el.skins[2].displayIcon}" alt="">
-            <h1>${el.displayName}</h3>
-            <h3>Fire Rate: ${el.weaponStats.fireRate} bullets per second</h3>
-            <h3>Magazine Size: ${el.weaponStats.magazineSize} bullets</h3>
-            <h3>Reload Time: ${el.weaponStats.reloadTimeSeconds} seconds</h3>
-            <h3>Damage at 0~30m</h3>
-            <h3>Head Shot Damage: ${el.weaponStats.damageRanges[0].headDamage}</h3>
-            <h3>Body Shot Damage: ${el.weaponStats.damageRanges[0].bodyDamage}</h3>
+  const Guns = [];
+  GunData.data.forEach((el) => Guns.push(`${el.displayName}`));
+  console.log(Guns);
 
-            <button class="remove">Clear</button>
-          
-          </div>`
-      );
-    });
+  if (UserInput == "Melee") {
+    GunData.data
+      .filter((el) => el.displayName == `${UserInput}`)
+      .map((el) => {
+        DOM.reponse.insertAdjacentHTML(
+          "beforeend",
+          `<div class="suu">
+          <img src="${el.displayIcon}" alt="">
+          <img src="${el.skins[0].displayIcon}" alt="">
+          <img src="${el.skins[1].displayIcon}" alt="">
+          <img src="${el.skins[2].displayIcon}" alt="">
+          <h1>${el.displayName}</h3>
+
+    
+          <button class="remove">Clear</button>
+        
+        </div>`
+        );
+      });
+  } else if (Guns.includes(`${UserInput}`)) {
+    GunData.data
+      .filter((el) => el.displayName == `${UserInput}`)
+      .map((el) => {
+        DOM.reponse.insertAdjacentHTML(
+          "beforeend",
+          `<div class="suu">
+        <img src="${el.displayIcon}" alt="">
+        <img src="${el.skins[0].displayIcon}" alt="">
+        <img src="${el.skins[1].displayIcon}" alt="">
+        <img src="${el.skins[2].displayIcon}" alt="">
+        <h1>${el.displayName}</h3>
+        <h3>Fire Rate: ${el.weaponStats.fireRate} bullets per second</h3>
+        <h3>Magazine Size: ${el.weaponStats.magazineSize} bullets</h3>
+        <h3>Reload Time: ${el.weaponStats.reloadTimeSeconds} seconds</h3>
+        <h3>Damage at 0~30m</h3>
+        <h3>Head Shot Damage: ${el.weaponStats.damageRanges[0].headDamage}</h3>
+        <h3>Body Shot Damage: ${el.weaponStats.damageRanges[0].bodyDamage}</h3>
+      
+        <button class="remove">Clear</button>
+      
+      </div>`
+        );
+      });
+  } else {
+    DOM.reponse.insertAdjacentHTML(
+      "beforeend",
+      `<div class="suu">
+    <h1>${UserInput} isn't a weapon</h3>
+
+  
+    <button class="remove">Clear</button>
+  
+  </div>`
+    );
+  }
 }
 
 getData(URL);

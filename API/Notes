@@ -100,3 +100,13 @@ DOM.Submit.addEventListener("submit", function (abc) {
 <h3>Damage at 30m+</h3>
 <h3>Head Shot Damage: ${el.weaponStats.damageRanges[1].headDamage}</h3>
 <h3>Body Shot Damage: ${el.weaponStats.damageRanges[1].bodyDamage}</h3>
+
+
+
+
+<h3>Fire Rate: ${el.weaponStats.fireRate} bullets per second</h3>
+<h3>Magazine Size: ${el.weaponStats.magazineSize} bullets</h3>
+<h3>Reload Time: ${el.weaponStats.reloadTimeSeconds} seconds</h3>
+<h3>Damage at 0~30m</h3>
+<h3>Head Shot Damage: ${el.weaponStats.damageRanges[0].headDamage}</h3>
+<h3>Body Shot Damage: ${el.weaponStats.damageRanges[0].bodyDamage}</h3>
