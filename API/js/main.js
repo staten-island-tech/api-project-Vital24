@@ -61,10 +61,10 @@ async function getInfo() {
         DOM.reponse.insertAdjacentHTML(
           "beforeend",
           `<div class="suu">
-          <img src="${el.displayIcon}" alt="">
-          <img src="${el.skins[0].displayIcon}" alt="">
-          <img src="${el.skins[1].displayIcon}" alt="">
-          <img src="${el.skins[2].displayIcon}" alt="">
+          <img src="${el.displayIcon}" alt="${el.displayName}">
+          <img src="${el.skins[0].displayIcon}" alt="${el.skins[0].displayName}">
+          <img src="${el.skins[1].displayIcon}" alt="${el.skins[1].displayName}">
+          <img src="${el.skins[2].displayIcon}" alt="${el.skins[2].displayName}">
           <h1>${el.displayName}</h3>
 
     
@@ -80,10 +80,10 @@ async function getInfo() {
         DOM.reponse.insertAdjacentHTML(
           "beforeend",
           `<div class="suu">
-        <img src="${el.displayIcon}" alt="">
-        <img src="${el.skins[0].displayIcon}" alt="">
-        <img src="${el.skins[1].displayIcon}" alt="">
-        <img src="${el.skins[2].displayIcon}" alt="">
+        <img src="${el.displayIcon}" alt="${el.displayName}">
+        <img src="${el.skins[0].displayIcon}" alt="${el.skins[0].displayName}">
+        <img src="${el.skins[1].displayIcon}" alt="${el.skins[1].displayName}">
+        <img src="${el.skins[2].displayIcon}" alt="${el.skins[2].displayName}">
         <h1>${el.displayName}</h3>
         <h3>Fire Rate: ${el.weaponStats.fireRate} bullets per second</h3>
         <h3>Magazine Size: ${el.weaponStats.magazineSize} bullets</h3>
